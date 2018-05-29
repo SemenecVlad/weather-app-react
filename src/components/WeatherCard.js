@@ -35,10 +35,10 @@ class WeatherCard extends Component {
             <Fragment>
                 <div className='title-box'>
                     <h1 style={(city.name).length > 13 ? {fontSize: '14px'} : {fontSize: '18px'}}>{city.name}</h1>
-                    <img src={`http://www.countryflags.io/${city.sys.country}/shiny/32.png`} />
+                    <img alt='Country flag' src={`http://www.countryflags.io/${city.sys.country}/shiny/32.png`} />
                 </div>
                 <div className='weather-thumb'>
-                    <img src={`http://openweathermap.org/img/w/${this.getWeatherInfo('icon')}.png`} />
+                    <img alt='Weather thumb' src={`http://openweathermap.org/img/w/${this.getWeatherInfo('icon')}.png`} />
                 </div>
 
                 <p className='temperature'>{city.main.temp} <sup>0</sup>C</p>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const Header = (props) => {
     return (
         <div className='App-header'>
-            <img src={logo} />
+            <img alt='Logo' src={logo} />
             <Link to='/' className='App-title'>Weather App</Link>
         </div>
     )

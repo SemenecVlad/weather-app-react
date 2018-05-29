@@ -5,7 +5,7 @@ import * as actions from '../actions';
 
 class WeatherForecast extends Component {
     componentDidMount() {
-        if (! this.props.forecast) {
+        if (this.props.forecast == '') {
             this.props.defaultWeatherForecastFetch()
         }
     }
