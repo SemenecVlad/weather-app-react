@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-import SearchBar from './SearchBar';
+import Welcome from './Welcome';
 import WeatherContainer from './WeatherContainer';
 
 class Main extends Component {
@@ -9,8 +9,10 @@ class Main extends Component {
     render() {
         return (
             <div className='main-container'>
-                <SearchBar />
-                <WeatherContainer />
+                <Switch>
+                    <Route exact  path='/' component={Welcome} />
+                    <Route path='/weather' component={WeatherContainer} />
+                </Switch>
             </div>
         )
     }

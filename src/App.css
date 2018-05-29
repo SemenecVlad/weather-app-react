@@ -21,6 +21,9 @@
 .App-title {
   font-size: 3em;
   margin: 5px;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
   text-shadow: 1px 1px 2px darkslategray;
   cursor: pointer;
 }

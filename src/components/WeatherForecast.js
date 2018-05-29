@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import * as actions from '../actions'
+import * as actions from '../actions';
 
 class WeatherForecast extends Component {
     componentDidMount() {
-        this.props.defaultWeatherForecastFetch()
+        if (! this.props.forecast) {
+            this.props.defaultWeatherForecastFetch()
+        }
     }
 
     getFormatedDate = (timestamp) => {

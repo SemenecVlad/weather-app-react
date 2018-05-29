@@ -5,7 +5,9 @@ import * as actions from '../actions';
 class WeatherCard extends Component {
 
     componentDidMount() {
-        this.props.defaultWeatherFetch()
+        if(!this.props.city) {
+            this.props.defaultWeatherFetch()
+        }
     }
     //Available keys: 'description', 'main', 'id', 'icon'
     getWeatherInfo = (name) => {
