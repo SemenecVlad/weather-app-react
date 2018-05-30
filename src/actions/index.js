@@ -13,13 +13,12 @@ export const error = (err) => ({
 });
 
 export const defaultWeatherFetch = () => {
-    let lat,lon;
 
     return dispatch => fetch('http://ip-api.com/json')
         .then(response => response.json())
         .then(data => {
-            lat= data.lat;
-            lon= data.lon;
+            const { lat, lon } = data;
+
             console.log(lat,lon);
             fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
                 .then(response => response.json())
@@ -37,7 +36,7 @@ export const defaultWeatherForecastFetch = () => {
     return dispatch => fetch('http://ip-api.com/json')
         .then(response => response.json())
         .then(data => {
-            const { lat, lon } = data
+            const { lat, lon } = data;
             
             console.log(lat,lon);
             fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`)
