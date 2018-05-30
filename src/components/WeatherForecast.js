@@ -11,7 +11,7 @@ class WeatherForecast extends Component {
     }
 
     getFormatedDate = (timestamp) => {
-        let date,hours,minutes,seconds,day,month,year,fullDate,fullTime, formatedDate;
+        let date,hours,minutes,seconds,day,month,year,fullDate,fullTime,formatedDate;
 
         date = new Date(timestamp * 1000);
 
@@ -19,14 +19,14 @@ class WeatherForecast extends Component {
         minutes = date.getMinutes() + '0';
         seconds = date.getSeconds() + '0';
 
-        day = date.getDate();
+        day = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
         month = date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : (date.getMonth() + 1);
         year = date.getFullYear();
 
         fullDate = day+'.'+month+'.'+year;
         fullTime = hours+':'+minutes;
 
-        formatedDate = fullTime + '-' + fullDate;
+        formatedDate = fullTime + ' ' + fullDate;
 
         return formatedDate;
     }
@@ -36,9 +36,9 @@ class WeatherForecast extends Component {
             return (
                 <div style={(item.weather.map(desc => desc.description)) =='clear sky' ? {background:'orange'} : {}} className='forecast-item' key={item.dt}>
                     <p className='date'>{this.getFormatedDate(item.dt)}</p>
-                    <img src={`http://openweathermap.org/img/w/${item.weather.map(item => item.icon)}.png`} />
+                    <img alt='weather thumb' src={`http://openweathermap.org/img/w/${item.weather.map(item => item.icon)}.png`} />
                     <p className='temperature'>{item.main.temp} <sup>0</sup>C</p>
-                    <p>{item.weather.map(desc => desc.description)}</p>
+                    <p className='weather-desc'>{item.weather.map(desc => desc.description)}</p>
                 </div>
             )
         })
